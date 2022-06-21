@@ -75,7 +75,7 @@ button{
 .line div{
     width: 60px;
     height: 3px;
-    background: var(--max-red);
+    background: rgb(71, 94, 143);
     border-radius: 5px;
 }
 .line span{
@@ -238,11 +238,12 @@ button{
     transition: var(--transition);
 }
 .form-submit-btn:hover{
-    background: var(--max-red);
+    background: var(--dimGray);
 }
 .contact-info{
-    background: var(--max-red);
+    background: rgb(71, 94, 143);
 }
+
 .contact-row-2{
     margin-top: 6rem;
     color: #fff;
@@ -271,7 +272,7 @@ button{
     transition: var(--transition);
 }
 .contact-col-2 ul a{
-    color: var(--max-red);
+    color: rgb(71, 94, 143);
     transition: var(--transition);
 }
 .contact-col-2 ul li:hover{
@@ -317,14 +318,14 @@ footer{
         margin-right: auto;
     }
     /* team */
-    .team-item{
+    /* .team-item{
         margin-bottom: 0;
     }
     .team-row{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-    }
+    } */
     /* contact */
     .contact-form{
         width: 600px;
@@ -387,20 +388,20 @@ footer{
         padding: 0;
     }
     /* services */
-    .service-row{
+    /* .service-row{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         column-gap: 2rem;
     }
     .service-item p{
         width: 100%;
-    }
+    } */
     /* menu */
-    .menu-row{
+    /* .menu-row{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 2rem;
-    }
+    } */
 }
 
 /*
