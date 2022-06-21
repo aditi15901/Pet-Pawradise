@@ -1,0 +1,191 @@
+:root{
+    --nero: #252525;
+    --dimGray: #666;
+    --max-red: #D62828;
+    --snow: #fafafa;
+    --Libre: 'Libre Franklin', sans-serif;
+    --Kaushan: 'Kaushan Script';
+    --transition: all 0.4s ease;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: var(--Libre);
+}
+
+body{
+    line-height: 1.5;
+    font-size: 1.05rem;
+    font-weight: 200;
+    background: black;
+    text-rendering: optimizeLegibility;
+}
+
+/* setup &  resuable stylings */
+a{
+    color: #000;
+    text-decoration: none;
+}
+img{
+    width: 100%;
+    display: block;
+}
+li{
+    list-style-type: none;
+}
+button{
+    outline: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.container{
+    width: 94%;
+    margin: 0 auto;
+}
+/* h1, h2, h3, h4, h5, h6{
+    padding: 0.3rem 0;
+} */
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text{
+    padding: 0.3rem 0;
+    line-height: 1.7;
+}
+/* .padding-y{
+    padding: 6rem 0;
+}
+.title{
+    padding: 1rem 0;
+    text-align: center;
+}
+.title h2{
+    margin: 0 0.5rem;
+    font-family: var(--Kaushan);
+    letter-spacing: 2px;
+}
+.line{
+    margin-top: 1.2rem;
+}
+.line div{
+    width: 60px;
+    height: 3px;
+    background: var(--max-red);
+    border-radius: 5px;
+}
+.line span{
+    font-size: 1.4rem;
+    margin: 0 1rem;
+    color: var(--max-red);
+} */
+/* banner section */
+.banner-item{
+    height: 100vh;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    color: #fff; 
+    background: black;
+    display: none; 
+    animation: fadeIn 3s; 
+}
+@keyframes fadeIn{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+.banner-item:nth-child(1){
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/images/doggo.jpeg) center/cover no-repeat fixed;
+}
+.banner-item:nth-child(2){
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/images/img.jpeg) center/cover no-repeat fixed;
+}
+.banner-item h1{
+    font-size: 2.5rem;
+    font-family: var(--Kaushan);
+}
+.banner-item .text{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.9;
+}
+.banner-item button{
+    background: transparent;
+    color: #fff;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    padding: 0.85rem 1.85rem;
+    margin-top: 1.75rem;
+    transition: var(--transition);
+}
+.banner-item button:hover{
+    background: #fff;
+    color: var(--dimGray);
+}
+.active-banner{
+    display: grid;
+}
+
+/* navbar */
+.navbar{
+    z-index: 999;
+    background: #fff;
+    -webkit-box-shadow: 0px 2px 6px 0px rgba(209,209,209,0.57);-moz-box-shadow: 0px 2px 6px 0px rgba(209,209,209,0.57);box-shadow: 0px 2px 6px 0px rgba(209,209,209,0.57);
+}
+.brand-and-toggler{
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem;
+    border-bottom: 1.5px solid #f0f0f0;
+}
+.navbar-brand{
+    display: flex;
+    align-items: center;
+}
+.navbar-brand img{
+    width: 40px;
+}
+.navbar-brand h2{
+    padding-left: 0.4rem;
+    color: black;
+    font-family: var(--Kaushan);
+    font-weight: 500;
+}
+#navbar-toggler{
+    font-size: 1.65rem;
+    padding: 0 0.3rem;
+    background: none;
+    border: none;
+    color: var(--nero);
+}
+.navbar-nav{
+    padding: 0.6rem 0;
+}
+.navbar-nav li{
+    margin: 0.2rem 0;
+    padding: 0.5rem 0;
+}
+.navbar-nav li a{
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--dimGray);
+}
+.navbar-nav li a:hover{
+    color: var(--nero);
+}
+.navbar-collapse{
+    display: none;
+}
+/* fixed navbar class */
+.fxd-navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
