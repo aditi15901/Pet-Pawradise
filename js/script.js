@@ -33,14 +33,14 @@ $(document).ready(function(){
         $('.navbar-collapse').slideToggle(500);
     });
 
-    // // fixed navbar 
-    // $(window).scroll(function(){
-    //     let pos = $(window).scrollTop();
-    //     if(pos >= 800){
-    //         $('.navbar').addClass('fxd-navbar');
-    //     } else {
-    //         $('.navbar').removeClass('fxd-navbar');
-    //     }
-    // });
+    // fixed navbar 
+    $(window).scroll(function(){
+        let pos = $(window).scrollTop();
+        if(pos >735){
+            $('.navbar').addClass('fxd-navbar');
+        } else {
+            $('.navbar').removeClass('fxd-navbar');
+        }
+    });
 
 });
