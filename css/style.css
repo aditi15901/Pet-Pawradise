@@ -1,7 +1,7 @@
 :root{
     --nero: #252525;
     --dimGray: #666;
-    --max-red: #f07167;
+    --max-red: #d3625a;
     --bludark : rgb(71, 94, 143);
     --blu: #168aad;
     --snow: #fafafa;
@@ -78,7 +78,7 @@ button{
 .line div{
     width: 60px;
     height: 3px;
-    background: var(--blu);
+    background: var(--max-red);
     border-radius: 5px;
 }
 .line span{
@@ -130,6 +130,7 @@ button{
     margin-top: 1.75rem;
     transition: var(--transition);
 }
+
 .banner-item button:hover{
     background: #fff;
     color: var(--dimGray);
@@ -284,6 +285,11 @@ button{
     font-family: var(--Kanit);
 }
 
+.customer .container .custom-box button:hover{
+    background: var(--dimGray); 
+    color:#fff;
+}
+
 /* contact */
 .contact.padding-y{
     padding-bottom: 0;
@@ -316,11 +322,14 @@ button{
     cursor: pointer;
     transition: var(--transition);
 }
+.service-btn:hover{
+    background: var(--dimGray);
+}
 .form-submit-btn:hover{
     background: var(--dimGray);
 }
 .contact-info{
-    background: var(--blu);
+    background: var(--max-red);
 }
 
 .contact-row-2{
@@ -351,7 +360,7 @@ button{
     transition: var(--transition);
 }
 .contact-col-2 ul a{
-    color: var(--blu);
+    color: var(--max-red);
     transition: var(--transition);
 }
 .contact-col-2 ul li:hover{
@@ -360,6 +369,8 @@ button{
 .contact-col-2 ul li:hover a{
     color: #fff;
 }
+
+
 
 /* footer */
 footer{
