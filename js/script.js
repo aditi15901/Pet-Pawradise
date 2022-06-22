@@ -36,11 +36,10 @@ $(document).ready(function(){
     // fixed navbar 
     $(window).scroll(function(){
         let pos = $(window).scrollTop();
-        if(pos >735){
+        if(pos >710){
             $('.navbar').addClass('fxd-navbar');
         } else {
             $('.navbar').removeClass('fxd-navbar');
         }
     });
-
 });
