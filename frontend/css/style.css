@@ -1,0 +1,496 @@
+:root{
+    --nero: #252525;
+    --dimGray: #666;
+    --max-red: #d3625a;
+    --bludark : rgb(71, 94, 143);
+    --blu: #168aad;
+    --snow: #fafafa;
+    --Libre: 'Libre Franklin', sans-serif;
+    --Kaushan: 'Kaushan Script';
+    --Kdam: 'Kdam Thmor Pro', sans-serif;
+    --Kanit: 'Kanit';
+    --transition: all 0.4s ease;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: var(--Libre);
+}
+
+body{
+    line-height: 1.5;
+    font-size: 1.05rem;
+    font-weight: 200;
+    background: white;
+    text-rendering: optimizeLegibility;
+}
+
+/* setup &  resuable stylings */
+a{
+    color: #000;
+    text-decoration: none;
+}
+img{
+    width: 100%;
+    display: block;
+}
+li{
+    list-style-type: none;
+}
+button{
+    outline: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.container{
+    width: 94%;
+    margin: 0 auto;
+}
+/* h1, h2, h3, h4, h5, h6{
+    padding: 0.3rem 0;
+} */
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text{
+    padding: 0.3rem 0;
+    line-height: 1.7;
+}
+.padding-y{
+    padding: 6rem 0;
+}
+.title{
+    padding: 1rem 0;
+    text-align: center;
+}
+.title h2{
+    margin: 0 0.5rem;
+    font-family: var(--Kdam);
+    letter-spacing: 2px;
+}
+.line{
+    margin-top: 1.2rem;
+}
+.line div{
+    width: 60px;
+    height: 3px;
+    background: var(--max-red);
+    border-radius: 5px;
+}
+.line span{
+    font-size: 1.4rem;
+    margin: 0 1rem;
+    /* color: var(--max-red); */
+}
+
+
+/* banner section */
+.banner{
+    background-color: #000;
+}
+.banner-item{
+    height: 100vh;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    color: #fff; 
+    background: black;
+    display: none; 
+    animation: fadeIn 3s; 
+}
+@keyframes fadeIn{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+.banner-item:nth-child(1){
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/images/doggo.jpeg) center/cover no-repeat fixed;
+}
+.banner-item:nth-child(2){
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/images/img.jpeg) center/cover no-repeat fixed;
+}
+.banner-item h1{
+    font-size: 2.5rem;
+    font-family: var(--Kaushan);
+}
+.banner-item .text{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.9;
+}
+.banner-item button{
+    background: transparent;
+    color: #fff;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    padding: 0.85rem 1.85rem;
+    margin-top: 1.75rem;
+    transition: var(--transition);
+}
+
+.banner-item button:hover{
+    background: #fff;
+    color: var(--dimGray);
+}
+.active-banner{
+    display: grid;
+}
+
+/* navbar */
+.navbar{
+    z-index: 999;
+    background: #fff;
+    -webkit-box-shadow: 0px 2px 6px 0px rgba(209,209,209,0.57);-moz-box-shadow: 0px 2px 6px 0px rgba(209,209,209,0.57);box-shadow: 0px 2px 6px 0px rgba(209,209,209,0.57);
+}
+
+.brand-and-toggler{
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem;
+    border-bottom: 1.5px solid #f0f0f0;
+}
+.navbar-brand{
+    display: flex;
+    align-items: center;
+}
+.navbar-brand img{
+    width: 40px;
+}
+.navbar-brand h2{
+    padding-left: 0.4rem;
+    color: black;
+    font-family: var(--Kaushan);
+    font-weight: 500;
+}
+#navbar-toggler{
+    font-size: 1.65rem;
+    padding: 0 0.3rem;
+    background: none;
+    border: none;
+    color: var(--nero);
+}
+.navbar-nav{
+    padding: 0.6rem 0;
+}
+.navbar-nav li{
+    margin: 0.2rem 0;
+    padding: 0.5rem 0;
+}
+.navbar-nav li a{
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--dimGray);
+}
+.navbar-nav li a:hover{
+    color: var(--nero);
+}
+.navbar-collapse{
+    display: none;
+}
+
+/* fixed navbar class */
+.fxd-navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* fixed navbar class for register*/
+.fxd-reg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* about */
+.about-row > div{
+    margin: 1.2rem 0;
+}
+.about-col-1,
+.about-col-3{
+    display: none;
+}
+
+
+/* customer service */
+.customer.padding-y{
+    background-image:linear-gradient(to right, rgba(255,0,0,0),rgb(47, 45, 45)), url(../assets/images/pet1.jpg) ;
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position:relative;
+    margin: 0% 15%;
+    border-radius: 5%;
+}
+
+.customer .container{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+
+.customer .container h2, .customer .container p{
+    color: white; 
+    text-align: center;
+} 
+
+.custom-title{
+    /* font-size: xx-large; */
+    font-family: 'Potta One', cursive;
+}
+.custom-text{
+    /* font-size: 18px; */
+    padding: 20px 0;
+}
+
+.custom-box{
+    text-align: center;
+    background-color: white;
+    max-width: 400px;
+    margin:auto;
+    border-radius: 50px;
+    padding: 12px 0px 12px 0px;
+    position: relative;
+}
+
+.customer .container .custom-box input{
+    border:none;
+    outline: none;
+    /* font-size: 18px; */
+    padding-bottom: 10px;
+    margin-left: auto;
+} 
+
+.customer .container .custom-box button{
+    background-image: linear-gradient(to right, rgb(151, 72, 72), rgb(50, 22, 22));
+    color: white;
+    border: none;
+    outline:none;
+    /* font-size:14px; */
+    padding: 10px 20px;
+    cursor: pointer;
+    /* margin-left: 20px; */
+    border-radius: 50px;
+    font-family: var(--Kanit);
+}
+
+.customer .container .custom-box button:hover{
+    background: var(--dimGray); 
+    color:#fff;
+}
+
+/* contact */
+.contact.padding-y{
+    padding-bottom: 0;
+}
+.contact-form{
+    padding: 0.6rem 0;
+}
+.form-control{
+    width: 100%;
+    color: var(--dimGray);
+    font-size: 1rem;
+    font-weight: 200;
+    border: 2px solid #f0f0f0;
+    border-radius: 3px;
+    padding: 0.7rem;
+    margin-bottom: 1.2rem;
+    outline: 0;
+}
+.form-control:focus{
+    border-color: var(--dimGray);
+}
+.form-submit-btn{
+    background: var(--nero);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 0.85rem 0;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.service-btn:hover{
+    background: var(--dimGray);
+}
+.form-submit-btn:hover{
+    background: var(--dimGray);
+}
+.contact-info{
+    background: var(--max-red);
+}
+
+.contact-row-2{
+    margin-top: 6rem;
+    color: #fff;
+    text-align: center;
+}
+.contact-col-1,
+.contact-col-2{
+    padding: 6rem 0;
+}
+.contact-col-1 ul li{
+    padding: 0.2rem 0;
+}
+.contact-col-2{
+    padding-top: 0;
+}
+.contact-col-2 ul{
+    margin-top: 1.5rem;
+}
+.contact-col-2 ul li{
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    margin: 0 0.4rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.contact-col-2 ul a{
+    color: var(--max-red);
+    transition: var(--transition);
+}
+.contact-col-2 ul li:hover{
+    background: var(--nero);
+}
+.contact-col-2 ul li:hover a{
+    color: #fff;
+}
+
+
+
+/* footer */
+footer{
+    padding: 2rem 0;
+    text-align: center;
+}
+
+
+
+/* #### Media Queries #### */
+
+@media screen and (min-width: 480px){
+    /* banner */
+    .banner-item h1{
+        font-size: 4rem;
+    }
+    .title h2{
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+    /* menu */
+    .menu-item{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        column-gap: 2rem;
+    }
+
+}
+
+@media screen and (min-width: 768px){
+    /* service */
+    .service-item p{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* team */
+    /* .team-item{
+        margin-bottom: 0;
+    }
+    .team-row{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    } */
+    /* contact */
+    .contact-form{
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .contact-col-2{
+        padding-top: 6rem;
+    }
+    .contact-row-2{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 992px){
+    /* banner */
+    /* .container{
+        width: 90vw;
+    }
+    .banner-item h1{
+        font-size: 6rem;
+    } */
+
+     /* about */
+     .about-row{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        align-items: center;
+        column-gap: 2rem;
+    }
+    .about-col-1,
+    .about-col-3{
+        display: block;
+    }
+    .about-row > div{
+        margin: 0;
+    }
+
+    
+    /* navbar */
+    .navbar .container{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    #navbar-toggler{
+        display: none;
+    }
+    .navbar-collapse{
+        flex: 1 0 auto;
+        display: block!important;
+    }
+    .navbar-nav{
+        display: flex!important;
+        justify-content: flex-end;
+    }
+    .navbar-nav li{
+        margin: 0 1.2rem;
+        padding: 0;
+    }
+    
+    /* customer service */
+    .custom-title{
+        font-size: xx-large;
+    }
+
+    .custom-text,
+    .customer .container .custom-box input{
+        font-size: 18px;
+    }
+
+    .customer .container .custom-box button{
+        font-size:14px;
+    }
+
+}

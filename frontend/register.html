@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Register</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- google fonts -->
+ <link rel="stylesheet"  href= "assets/fonts/font.css">
+  <!-- Fontawesome js -->
+  <link rel="stylesheet"  href= "assets/fontawesome/all.css">
+  <!-- custom style css -->
+  <link rel="stylesheet" href= "css/style.css">
+</head>
+
+<body>
+  <header>
+    <!-- navbar -->
+    <nav class="navbar fxd-reg">
+      <div class="container">
+        <div class="brand-and-toggler">
+          <a href="main.html" class="navbar-brand">
+            <img  src= "assets/images/pawradise.png" alt="logo">
+            <h2>Pet Pawradise</h2>
+          </a>
+          <button type="button" id="navbar-toggler">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="navbar-collapse">
+          <ul class="navbar-nav">
+            <li>
+              <a  href="main.html">go back to home</a>
+            </li>
+            <li>
+              <a href="#contact">contact us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+  </header>
+  <!-- end of header -->
+
+  <!-- register section -->
+
+  <section class="padding-y about" id="about">
+    <div class="container">
+      <div class="about-row">
+        <div class="about-col-1">
+          <!-- <img src="assets/images/pet10.jpeg" alt=""> -->
+        </div>
+        <div class="about-col-2">
+          <!-- title -->
+
+          <div class="title">
+            <h2>Register for Adoption</h2>
+            <!-- <p class = "text">any breed</p> -->
+            <div class="line center">
+              <div></div>
+              <span><i class="fas fa-cat"></i></span>
+              <div></div>
+            </div>
+          </div>
+          <!-- end of title -->
+          <div class="contact-row-1">
+            <form class="contact-form" action="/submitform" method="post" enctype="multipart/form-data">
+              <div class="contact-subrow">
+                <p align=center font="Libre"> Guardian's Details:</p>
+                <input type="text" class="form-control" placeholder="Name" name="Name">
+              </div>
+              <div class="contact-subrow">
+                <input type="text" class="form-control" placeholder="Phone" name="Phone">
+                <input type="email" class="form-control" placeholder="Email" name="Email">
+              </div>
+              <div class="contact-subrow">
+                <p align=center font="Libre"> Fill the pet details below:</p>
+                <p font="Libre"> Dog/Cat:</p>
+                <input type="image" src="assets/images/dog.png"  name="dog" width="100" height="100" alt="dog" />
+                <input type="image" src="assets/images/cat.png" name="cat" width="100" height="100" alt="cat" />
+                <input type="text" class="form-control" placeholder="Age" name="Age">
+                <input type="text" class="form-control" placeholder="Vaccination Status"  name="Vaccination">
+                <!-- <input type="checkbox" id="option1" name="option1" value="status">
+                        <label for="option1"> Fully Vaccinated</label><br>
+                    <input type="checkbox" id="option1" name="option1" value="status">
+                        <label for="option1"> Partially Vaccinated</label><br>
+                    <input type="checkbox" id="option1" name="option1" value="status">
+                        <label for="option1"> Not Vaccinated</label><br>  -->
+                <!-- <input type = "email" class = "form-control" placeholder="Email"> -->
+              </div>
+              <textarea rows="5" class="form-control" placeholder="Little Introduction of the pet" name="intro"></textarea>
+              <p align=center font="Libre"> Attach image of pet:</p>
+              <input type="file" class="form-control" id='file-input' placeholder="Upload Image of pet" name="Image">
+              <img id='preview'>
+              <script src='js/preview.js'> </script>
+              <div align=center class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
+              <br> 
+              <input type="submit" class="form-submit-btn" value="submit">
+            </form>
+          </div>
+        </div>
+        <div class="about-col-3">
+          <!-- <img src="assets/images/pet12.jpeg" alt=""> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of register section -->
+
+  <!-- contact section -->
+  <section class="padding-y contact" id="contact">
+    <div class="contact-info">
+      <div class="container">
+        <div class="contact-row-2">
+          <div class="contact-col-1">
+            <h2>Contact Detail <i class="fas fa-paw"></i></h2>
+            <ul>
+              <li>Indian Institute of Technology, Ropar</li>
+              <li>Phone: +91 83988 05715 , +91 91237 26566</li>
+              <li>Email: adidas15901@gmail.com, 27ssikri@gmail.com </li>
+              <li>Website: www.pawradise.com</li>
+            </ul>
+          </div>
+          <div class="contact-col-2">
+            <h2>Follow Us<i class="fas fa-paw"></i></h2>
+            <p class="text">Do check us out on other social media platforms and follow us!</p>
+            <ul class="center">
+              <!-- <li class = "center">
+                  <a href = "#">
+                    <i class = "fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class = "center">
+                  <a href = "#">
+                    <i class = "fab fa-twitter"></i>
+                  </a>
+                </li> -->
+              <li class="center">
+                <a href="https://www.linkedin.com/in/shruti-sikri-32642814a/" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </li>
+              <li class="center">
+                <a href="https://www.linkedin.com/in/aditi-das-517588209/" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of contact section -->
+
+  <!-- footer -->
+  <footer>
+    <p class="text">Copyright &copy; Pet Pawradise Website 2022.</p>
+  </footer>
+  <!-- end of footer -->
+
+
+
+  <!-- jQuery -->
+  <script src="'assets/jquery/jquery-3.6.0.js"></script>
+  <!-- Fontawesome js -->
+  <script src="assets/fontawesome/all.js"></script>
+  <!-- custom js file -->
+  <script src="js/script.js"></script>
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+</body>
+
+</html>
