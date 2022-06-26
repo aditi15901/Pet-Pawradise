@@ -23,11 +23,16 @@ class nameValue(BaseModel):
 def write_home(request: Request):
     return templates.TemplateResponse("main.html",{"request":request})
 
+# @app.get("/pawaradise/register.html")
+# def handle_form(request: Request):
+#     return templates.TemplateResponse("pawradise/register.html", context={'request': request})
+
 @app.post("/submitform")
-async def handle_form(Name: str = Form(...),Phone: int=Form(...),Email:str=Form(...),Age:int=Form(...),Vaccination: str=Form(...),intro:str=Form(...),Image:UploadFile=Form(...)):
+async def handle_form(request: Request, Name: str = Form(...),Phone: int=Form(...),Email:str=Form(...),Age:int=Form(...),Vaccination: str=Form(...),intro:str=Form(...),Image:UploadFile=Form(...)):
     print(Name," ",Phone," ",Email," ",Age," ",Vaccination)
     print(intro)
     print(Image.filename)
+    return templates.TemplateResponse("register.html", context={'request': request})
 
 # @app.get("/main/register.html",response_class=HTMLResponse)
 # def write_register(request: Request):
