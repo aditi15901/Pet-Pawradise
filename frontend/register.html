@@ -8,11 +8,11 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- google fonts -->
- <link rel="stylesheet"  href= "assets/fonts/font.css">
+  <link rel="stylesheet" href="assets/fonts/font.css">
   <!-- Fontawesome js -->
-  <link rel="stylesheet"  href= "assets/fontawesome/all.css">
+  <link rel="stylesheet" href="assets/fontawesome/all.css">
   <!-- custom style css -->
-  <link rel="stylesheet" href= "css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
       <div class="container">
         <div class="brand-and-toggler">
           <a href="main.html" class="navbar-brand">
-            <img  src= "assets/images/pawradise.png" alt="logo">
+            <img src="assets/images/pawradise.png" alt="logo">
             <h2>Pet Pawradise</h2>
           </a>
           <button type="button" id="navbar-toggler">
@@ -32,7 +32,7 @@
         <div class="navbar-collapse">
           <ul class="navbar-nav">
             <li>
-              <a  href="main.html">go back to home</a>
+              <a href="main.html">go back to home</a>
             </li>
             <li>
               <a href="#contact">contact us</a>
@@ -67,39 +67,63 @@
           </div>
           <!-- end of title -->
           <div class="contact-row-1">
-            <form class="contact-form" action="/submitform" method="post" enctype="multipart/form-data">
+            <form class="contact-form" action="/submitform"  method="post" enctype="multipart/form-data">
               <div class="contact-subrow">
                 <p align=center font="Libre"> Guardian's Details:</p>
-                <input type="text" class="form-control" placeholder="Name" name="Name">
+                <input type="text" id="messageText" class="form-control" placeholder="Name" name="Name" required>
               </div>
               <div class="contact-subrow">
-                <input type="text" class="form-control" placeholder="Phone" name="Phone">
-                <input type="email" class="form-control" placeholder="Email" name="Email">
+                <input type="text" class="form-control" placeholder="Phone" name="Phone" required>
+                <input type="email" class="form-control" placeholder="Email" name="Email" required>
               </div>
               <div class="contact-subrow">
                 <p align=center font="Libre"> Fill the pet details below:</p>
                 <p font="Libre"> Dog/Cat:</p>
-                <input type="image" src="assets/images/dog.png"  name="dog" width="100" height="100" alt="dog" />
+                <input type="image" src="assets/images/dog.png" name="dog" width="100" height="100" alt="dog" />
                 <input type="image" src="assets/images/cat.png" name="cat" width="100" height="100" alt="cat" />
-                <input type="text" class="form-control" placeholder="Age" name="Age">
-                <input type="text" class="form-control" placeholder="Vaccination Status"  name="Vaccination">
+                <input type="text" class="form-control" placeholder="Age" name="Age" required>
+                <input type="text" class="form-control" placeholder="Vaccination Status" name="Vaccination" required>
                 <!-- <input type="checkbox" id="option1" name="option1" value="status">
                         <label for="option1"> Fully Vaccinated</label><br>
                     <input type="checkbox" id="option1" name="option1" value="status">
                         <label for="option1"> Partially Vaccinated</label><br>
                     <input type="checkbox" id="option1" name="option1" value="status">
                         <label for="option1"> Not Vaccinated</label><br>  -->
-                <!-- <input type = "email" class = "form-control" placeholder="Email"> -->
+                <input type = "email" class = "form-control" placeholder="Email">
               </div>
-              <textarea rows="5" class="form-control" placeholder="Little Introduction of the pet" name="intro"></textarea>
+              <textarea rows="5" class="form-control" placeholder="Little Introduction of the pet" name="intro"
+                required></textarea>
               <p align=center font="Libre"> Attach image of pet:</p>
-              <input type="file" class="form-control" id='file-input' placeholder="Upload Image of pet" name="Image">
+              <input type="file" class="form-control" id='file-input' placeholder="Upload Image of pet" name="Image"
+                required>
               <img id='preview'>
               <script src='js/preview.js'> </script>
               <div align=center class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
-              <br> 
+              <br>
               <input type="submit" class="form-submit-btn" value="submit">
             </form>
+            <!-- <ul id='messages'>
+            </ul>
+            <script>
+                var ws = new WebSocket("ws://localhost:8000/ws");
+                ws.onmessage = function(event) {
+                    var messages = document.getElementById('messages')
+                    var message = document.createElement('li')
+                    var content = document.createTextNode(event.data)
+                    message.appendChild(content)
+                    messages.appendChild(message)
+                };
+                function submitform(event) {
+                    var input = document.getElementById("messageText")
+                    ws.send(input.value)
+                    input.value = ''
+                    event.preventDefault()
+                }
+            </script> -->
+            <script>
+              localStorage.setItem("firstname", "Smith");
+          </script>  
+    
           </div>
         </div>
         <div class="about-col-3">
@@ -165,7 +189,7 @@
 
 
   <!-- jQuery -->
-  <script src="'assets/jquery/jquery-3.6.0.js"></script>
+  <script src="assets/jquery/jquery-3.6.0.js"></script>
   <!-- Fontawesome js -->
   <script src="assets/fontawesome/all.js"></script>
   <!-- custom js file -->
