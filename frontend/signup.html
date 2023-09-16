@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sign in</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- google fonts -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/font.css') }}">
+    <!-- Fontawesome js -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fontawesome/all.css') }}">
+    <!-- custom style css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+<!-- Import Potta One font from static folder -->
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/potta-one-font.css') }}">
+
+</head>
+
+<body background="{{ url_for('static', filename='assets/images/paoz.jpeg') }}" background-repeat="no-repeat” background-size=" cover”>
+
+  <!-- navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="brand-and-toggler">
+        <a href="{{ url_for('main') }}" class="navbar-brand">
+          <img src="{{ url_for('static', filename='assets/images/pawradise.png') }}" alt="logo">
+          <h2>Pet Pawradise</h2>
+        </a>
+        <button type="button" id="navbar-toggler">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <div class="navbar-collapse">
+        <ul class="navbar-nav">
+          <li>
+            <a href="{{ url_for('main') }}">home</a>
+          </li>
+          <li>
+            <a href="{{ url_for('register') }}">Register Pet</a>
+          </li>
+          <li>
+            <a href="{{ url_for('adopt') }}">Adopt</a>
+          </li>
+          <li>
+            <a href="#contact">contact us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end of navbar -->
+
+  <section class="padding-y about" id="about">
+    <div class="centerlogin">
+      <h1>Sign in</h1>
+      <div class="line center">
+        <div></div>
+        <span><i class="fas fa-cat"></i></span>
+        <div></div>
+      </div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message" >
+            <p align="center" class="{{category}}">{{ message }}</p>
+            
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+      <form method="post" id="signup-form" action='http://127.0.0.1:5000/signin'>
+        <div class="txt_field">
+          <input type="text" name="text" required>
+          <span></span>
+          <label>Username</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" required>
+          <span></span>
+          <label>Password</label>
+        </div>
+        <div class="txt_field">
+            <input type="email" name="email" required>
+            <span></span>
+            <label>Email</label>
+          </div>
+        <input type="submit" value="SIGN IN">
+        <div id="error-message" style="display:none; color:red;">Username already exists</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- contact section -->
+  <section class="padding-y contact" id="contact">
+
+    <div class="contact-info">
+      <div class="container">
+        <div class="contact-row-2">
+          <div class="contact-col-1">
+            <h2>Contact Detail <i class="fas fa-paw"></i></h2>
+            <ul>
+              <li>Indian Institute of Technology, Ropar</li>
+              <li>Phone: +91 91237 26566</li>
+              <li>Email: adidas15901@gmail.com </li>
+              <li>Website: www.pawradise.com</li>
+            </ul>
+          </div>
+          <div class="contact-col-2">
+            <h2>Follow Us <i class="fas fa-paw"></i> </h2>
+            <p class="text">Do check us out on other social media platforms and follow us!</p>
+            <ul class="center">
+              <!-- <li class = "center">
+                  <a href = "#">
+                    <i class = "fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class = "center">
+                  <a href = "#">
+                    <i class = "fab fa-twitter"></i>
+                  </a>
+                </li> -->
+              <li class="center">
+                <a href="https://www.linkedin.com/in/aditi-das-517588209/" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </li>
+              <li class="center">
+                <a href="https://www.linkedin.com/in/aditi-das-517588209/" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of contact section -->
+
+  <!-- footer -->
+  <footer>
+    <p class="text">Copyright &copy; Pet Pawradise Website 2023.</p>
+  </footer>
+  <!-- end of footer -->
+
+  <!-- jQuery -->
+  <script src="{{ url_for('static', filename='assets/jquery/jquery-3.6.0.js') }}"></script>
+  <!-- Fontawesome js -->
+  <script src="{{ url_for('static', filename='assets/fontawesome/all.js') }}"></script>
+  <!-- custom js file -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

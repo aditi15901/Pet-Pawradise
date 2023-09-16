@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--1-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Adopt</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- google fonts -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/font.css') }}">
+    <!-- Fontawesome js -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fontawesome/all.css') }}">
+    <!-- custom style css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- google fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<!-- Import Potta One font from static folder -->
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/potta-one-font.css') }}">
+</head>
+
+<body style="margin-left: 20%; "  background-repeat="no-repeat" background-size=cover>
+  <!--2-->
+  <header>
+    <!-- navbar -->
+    <nav class="navbar fxd-reg">
+      <div class="container">
+        <div class="brand-and-toggler">
+          <a href="{{ url_for('main') }}" class="navbar-brand">
+            <img src="{{ url_for('static', filename='assets/images/pawradise.png') }}" alt="logo">
+            <h2>Pet Pawradise</h2>
+          </a>
+          <button type="button" id="navbar-toggler">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="navbar-collapse">
+          <ul class="navbar-nav">
+            <li>
+              <a href="{{ url_for('main') }}">go back to home</a>
+            </li>
+            <li>
+              <a href="{{ url_for('register') }}">Register Pet</a>
+            </li>
+            <li>
+              <a href="#contact">contact us</a>
+            </li>
+            <li>
+              <a href="{{ url_for('signin') }}">sign in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+  </header>
+  <!-- <!-1- end of header -1-> -->
+
+<!-- <div id="my-div" data-my-var="hello"></div> -->
+  <br><br><br>
+
+              <!-- end of title -->
+              {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="flash-message" >
+                    <p align="center" class="{{category}}">{{ message }}</p>
+                    
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+<div>
+<p style="padding-left:20px; padding-top: 10px;"> Showing {{ count }} results... </p>
+</div>
+
+
+<div class="gallery" id="pets-container"></div>
+
+
+
+  <div class="filter-container">
+    <h4 class="filter-heading"><br><br><br></h4>
+    <h4 class="filter-heading"></h4>
+    <p class="pl-sm-0 pl-2"><a href="{{ url_for('main') }}">Home</a> | <b>All Pets</b><br></p>
+    <h4 class="filter-heading"><br>Filters</h4>
+    <form id="filter-form">
+      <label for="dog/cat">Dog / Cat:</label>
+      <select name="dogorcat" id="dogorcat">
+        <option value="any">Any</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+
+      </select>
+
+      <label for="state">State:</label>
+      <select name="state" id="state">
+        <option value="all">All States</option>
+        <option value="andhra_pradesh">Andhra Pradesh</option>
+        <option value="arunachal_pradesh">Arunachal Pradesh</option>
+        <option value="assam">Assam</option>
+        <option value="bihar">Bihar</option>
+        <option value="chhattisgarh">Chhattisgarh</option>
+        <option value="goa">Goa</option>
+        <option value="gujarat">Gujarat</option>
+        <option value="haryana">Haryana</option>
+        <option value="himachal_pradesh">Himachal Pradesh</option>
+        <option value="jammu_kashmir">Jammu and Kashmir</option>
+        <option value="jharkhand">Jharkhand</option>
+        <option value="karnataka">Karnataka</option>
+        <option value="kerala">Kerala</option>
+        <option value="madhya_pradesh">Madhya Pradesh</option>
+        <option value="maharashtra">Maharashtra</option>
+        <option value="manipur">Manipur</option>
+        <option value="meghalaya">Meghalaya</option>
+        <option value="mizoram">Mizoram</option>
+        <option value="nagaland">Nagaland</option>
+        <option value="odisha">Odisha</option>
+        <option value="punjab">Punjab</option>
+        <option value="rajasthan">Rajasthan</option>
+        <option value="sikkim">Sikkim</option>
+        <option value="tamil_nadu">Tamil Nadu</option>
+        <option value="telangana">Telangana</option>
+        <option value="tripura">Tripura</option>
+        <option value="uttar_pradesh">Uttar Pradesh</option>
+        <option value="uttarakhand">Uttarakhand</option>
+        <option value="west_bengal">West Bengal</option>
+      </select>
+
+      <label for="vaccinated">Vaccination Status:</label>
+      <select name="status" id="status">
+        <option value="any_vacc">Any</option>
+        <option value="vacc">Fully Vaccinated</option>
+        <option value="p_vacc">Partially Vaccinated</option>
+        <option value="not_vacc">Not Vaccinated</option>
+
+      </select>
+
+      <label for="breed">Breed:</label>
+      <select name="breed" id="breed">
+        <option value="all">All Breeds</option>
+        <option value="labrador">Labrador Retriever</option>
+        <option value="poodle">Steay</option>
+        <option value="bulldog">Bulldog</option>
+        <option value="stray">Bulldog</option>
+      </select>
+      <button type="submit" id="filter-button" style="display: block;
+    margin: 0 auto;">Filter</button>
+    </form>
+
+    <h4 class="filter-heading"><br>Sort By</h4>
+    <form>
+      <!-- <label for="sort">Sort by:</label> -->
+      <select name="sort" id="sort">
+        <option value="recommended">Recommended</option>
+        <option value="age_asc">Age (Low to High)</option>
+        <option value="age_desc">Age (High to Low)</option>
+      </select>
+      <button type="submit" style="display: block;
+    margin: 0 auto;">Sort</button>
+    </form>
+  </div>
+
+
+  <script>
+    function fetchPets() {
+        fetch('/fetch')
+            .then(response => response.text())
+            .then(html => {
+                const petsContainer = document.getElementById('pets-container');
+                petsContainer.innerHTML = html;
+            })
+            .catch(error => console.error(error));
+    }
+
+    function applyFilter(event) {
+  event.preventDefault();
+  
+  const dogorcat = document.getElementById('dogorcat').value;
+  const state = document.getElementById('state').value;
+  
+  fetch(`/fetch?dog/cat=${dogorcat}`)
+    .then(response => response.text())
+    .then(html => {
+      const petsContainer = document.getElementById('pets-container');
+      petsContainer.innerHTML = html;
+    })
+    .catch(error => console.error(error));
+}
+
+
+
+function applySort() {
+  // implement sorting logic here
+  
+  fetch('/fetch')
+    .then(response => response.text())
+    .then(html => {
+      const petsContainer = document.getElementById('pets-container');
+      petsContainer.innerHTML = html;
+    })
+    .catch(error => console.error(error));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetchPets();
+  
+  const filterForm = document.getElementById('filter-button');
+  filterForm.addEventListener('submit', applyFilter);
+  
+  const sortButton = document.getElementById('sort-button');
+  sortButton.addEventListener('click', applySort);
+});
+</script>
+
+
+
+  <!-- contact section -->
+  <section class="padding-y contact" id="contact">
+    <div class="contact-info">
+      <div class="container">
+        <div class="contact-row-2">
+          <div class="contact-col-1">
+            <h2>Contact Detail <i class="fas fa-paw"></i></h2>
+            <ul>
+              <li>Indian Institute of Technology, Ropar</li>
+              <li>Phone: +91 91237 26566</li>
+              <li>Email: adidas15901@gmail.com </li>
+              <li>Website: www.pawradise.com</li>
+            </ul>
+          </div>
+          <div class="contact-col-2">
+            <h2>Follow Us <i class="fas fa-paw"></i></h2>
+            <p class="text">Do check us out on other social media platforms and follow us!</p>
+            <ul class="center">
+              <li class="center">
+                <a href="https://www.linkedin.com/in/aditi-das-517588209/" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </li>
+              <li class="center">
+                <a href="https://www.linkedin.com/in/aditi-das-517588209/" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of contact section -->
+
+
+  <!-- footer -->
+  <footer>
+    <p class="text">Copyright &copy; Pet Pawradise Website 2023.</p>
+  </footer>
+  <!-- end of footer -->
+
+<div id="adopt-me-popup" class="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+    <div class="title">
+      <h2>Pet Details</h2>
+    </div>
+    <div class="line center">
+      <div></div>
+      <span><i class="fas fa-cat"></i></span>
+      <div></div>
+    </div>
+    <br>
+    <div class="details">
+      <img id="pet-image" src="">
+      <p><b><br>Name:</b> <span id="pet-name"></span></p>
+      <p><b>Pet ID:</b> <span id="pet-id"></span></p>
+      <p><b>Dog/Cat:</b> <span id="pet-type"></span></p>
+      <p><b>Age:</b> <span id="pet-age"></span></p>
+      <p><b>Vaccination Status:</b> <span id="pet-vaccination"></span></p>
+      <p><b>Breed:</b> <span id="pet-breed"></span></p>
+      <p><b>State of Residence:</b> <span id="pet-location"></span></p>
+      <p><b>Details of pet:</b> <span id="pet-description"></span></p>
+      <p><b>Full address:</b> <span id="pet-address"></span><br><br> </p>
+      <button class="adopt-1 adopt-btn">Adopt Now</button>
+    </div>
+  </div>
+</div>
+<!-- Adoption form popup -->
+<div id="adoption-form-popup" class="popup">
+  <div class="popup-content">
+    <span class="back-btn">&lt; <b>Back</b></span>
+    <div class="title">
+      <h2>Adoption Form</h2>
+    </div>
+    <div class="line center">
+      <div></div>
+      <span><i class="fas fa-cat"></i></span>
+      <div></div>
+    </div>
+    <div class="details" >
+      <form class="contact-form" action="/adopt" method="post" enctype="multipart/form-data">
+      <label for="name" >Name:</label><br>
+      <input type="text" id="name" name="name"  style="width: 100%; height:29px; border-color: rgb(211, 209, 209);" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email"  style="width: 100%; height:29px; border-color: rgb(211, 209, 209);" required><br>
+      <label for="phone">Phone:</label><br>
+      <input type="tel" id="phone" name="phone" style="width: 100%; height:29px; border-color: rgb(211, 209, 209);" required><br>
+      <label for="address">Address:</label><br>
+      <input type="text" id="address" name="address" style="width: 100%; height:29px; border-color: rgb(211, 209, 209);" required><br>
+      <label for="city">City:</label><br>
+      <input type="text" id="city" name="city" style="width: 100%; height:29px; border-color: rgb(211, 209, 209);" required><br>
+      <label for="state">State:</label><br>
+      <input type="text" id="state" name="state" style="width: 100%; height:29px; border-color: rgb(211, 209, 209);" required><br>
+      <label for="zip">Zip Code:</label><br>
+      <input type="text" id="zip" name="zip" style="width: 100%; height:29px; border-color: rgb(211, 209, 209);" required><br>
+      <p style="color: gray;font-size: 15px">(Please make sure you enter the correct pet ID from the details page)</p>
+      <label for="id">Pet ID :</label><br>
+      <input type="number" id="id" name="id" style="width: 100%; height:29px; border-color: rgb(211, 209, 209);" required><br>
+      <label for="experience">Experience with pets:</label><br>
+      <select id="experience" name="experience" style="width: 100%; height:29px; border-color: rgb(211, 209, 209);">
+        <option value="none">Select one</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="expert">Expert</option>
+      </select><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="4" cols="87" style="border-color: rgb(211, 209, 209);"></textarea><br>
+      <!-- <input type="hidden" name="pet_id" id="pet-id-input" value="{{ pet_id }}">
+
+<script>
+  const petIdInput = document.getElementById('pet-id-input');
+  const petId = petIdInput.value;
+  console.log(petId);
+</script> -->
+      <button class="adopt-2 adopt-btn">Submit</button>
+    </form>
+    </div>
+
+  </div>
+</div>    
+
+
+<script>
+
+  function showDetails(id) {
+  // Get the current URL without the query string
+  var currentUrl = window.location.href.split("?")[0];
+  // console.log(currentUrl);
+
+  // Push the new URL to the history
+  var newUrl = currentUrl + "?id=" + id;
+  history.pushState({id: id}, "", newUrl);
+
+  // console.log({id});
+
+  var popup = document.getElementById("adopt-me-popup");
+  
+  // Fetch the pet details from the server
+  fetch(`/pets/${id}`)
+    .then(response => response.json())
+    .then(pet => {
+      // Update the popup content with the pet details
+      var img = popup.querySelector("#pet-image");
+      img.src = `data:image/png;base64,${pet.image.toString('base64')}`;
+      var name = popup.querySelector("#pet-name");
+      name.textContent = pet.petname;
+      var type = popup.querySelector("#pet-id");
+      type.textContent = pet.id;
+      var type = popup.querySelector("#pet-type");
+      type.textContent = pet.pet;
+      var age = popup.querySelector("#pet-age");
+      age.textContent = pet.age_years + " years " + pet.age_months + " months";
+      var vacc = popup.querySelector("#pet-vaccination");
+      vacc.textContent = pet.vaccination;
+      var breed = popup.querySelector("#pet-breed");
+      breed.textContent = pet.breed;
+      var location = popup.querySelector("#pet-location");
+      location.textContent = pet.state;
+      var description = popup.querySelector("#pet-description");
+      description.textContent = pet.description;
+      var address = popup.querySelector("#pet-address");
+      address.textContent = pet.address;
+      
+      
+      // Show the popup
+      popup.style.display = "block";
+    })
+    .catch(error => console.error(error));
+}
+
+// Handle changes in the URL
+window.onpopstate = function(event) {
+  if (event.state && event.state.id) {
+    showDetails(event.state.id);
+  }
+};
+
+  
+  // function openAdoptionForm() {
+  //   // Code to open the adoption form
+  // }
+  
+  function closePopup() {
+    var popup = document.getElementById("adopt-me-popup");
+    popup.style.display = "none";
+  }
+
+       // Get the popup
+       const popup = document.getElementById("adopt-me-popup");
+
+// Get the button that opens the popup
+const buttons = document.querySelectorAll(".adopt-1");
+
+// Get the <span> element that closes the popup
+closeBtn = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the popup
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].onclick = function () {
+    popup.style.display = "block";
+  }
+}
+
+// When the user clicks on <span> (x), close the popup
+closeBtn.onclick = function () {
+  popup.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the popup, close it
+window.onclick = function (event) {
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+}
+// Get the adopt me popup
+var adoptMePopup = document.getElementById("adopt-me-popup");
+
+// Get the adoption form popup
+var adoptionFormPopup = document.getElementById("adoption-form-popup");
+
+// Get the close button for the adopt me popup
+var closeBtn = adoptMePopup.getElementsByClassName("close")[0];
+
+// Get the adopt now button for the adopt me popup
+var adoptNowBtn = adoptMePopup.getElementsByClassName("adopt-btn")[0];
+
+// Get the back button for the adoption form popup
+var backBtn = adoptionFormPopup.getElementsByClassName("back-btn")[0];
+
+// Open the adoption form popup
+function openAdoptionForm() {
+// Hide the adopt me popup
+
+adoptMePopup.style.display = "none";
+// Show the adoption form popup
+adoptionFormPopup.style.display = "block";
+// console.log(id)
+}
+
+// Go back to the pet details popup
+function goBack() {
+// Hide the adoption form popup
+adoptionFormPopup.style.display = "none";
+// Show the adopt me popup
+adoptMePopup.style.display = "block";
+}
+
+// Close the adopt me popup when the close button is clicked
+closeBtn.onclick = function() {
+adoptMePopup.style.display = "none";
+}
+
+// Open the adoption form popup when the adopt now button is clicked
+adoptNowBtn.onclick = function() {
+  // console.log("1")
+openAdoptionForm();
+}
+
+// Go back to the pet details popup when the back button is clicked
+backBtn.onclick = function() {
+goBack();
+}
+  </script>
+  <!-- jQuery -->
+  <script src="{{ url_for('static', filename='assets/jquery/jquery-3.6.0.js') }}"></script>
+  <!-- Fontawesome js -->
+  <script src="{{ url_for('static', filename='assets/fontawesome/all.js') }}"></script>
+  <!-- custom js file -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+  
+</body>
+
+</html>

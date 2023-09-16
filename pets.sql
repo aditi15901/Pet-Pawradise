@@ -1,0 +1,49 @@
+DROP TABLE IF EXISTS `pets`;
+
+CREATE TABLE pets (
+  username VARCHAR(50) NOT NULL,
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  pet varchar(50) DEFAULT NULL,
+  petname varchar(50) DEFAULT NULL,
+  age_years int(11) DEFAULT NULL,
+  age_months int(11) DEFAULT NULL,
+  breed varchar(50) DEFAULT NULL,
+  vaccination varchar(50) DEFAULT NULL,
+  state varchar(50) DEFAULT NULL,
+  image blob DEFAULT NULL,
+  address VARCHAR(100) DEFAULT NULL,
+  description TEXT DEFAULT NULL
+);
+
+CREATE TABLE adoption_requests (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  state VARCHAR(255) NOT NULL,
+  zip VARCHAR(255) NOT NULL,
+  experience VARCHAR(255) NOT NULL,
+  message TEXT,
+  petid BIGINT UNSIGNED,
+  PRIMARY KEY (id)
+);
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE users (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE subscribers (
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    message VARCHAR(255) NOT NULL
+);

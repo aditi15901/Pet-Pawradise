@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Pet Pawradise</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- google fonts -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/font.css') }}">
+  <!-- Fontawesome js -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/fontawesome/all.css') }}">
+  <!-- custom style css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+
+<!-- Import Potta One font from static folder -->
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/potta-one-font.css') }}">
+
+
+</head>
+
+<body background="white">
+  <header>
+    <!-- banner section -->
+    <section class="banner" id="home">
+      <ul class="banner-slider">
+        <li class="banner-item active-banner">
+          <div class="container">
+            <h1>Get the pawfect pet right now!</h1>
+            <p class="text">search for pets up for adoption near you</p>
+            <a href="{{ url_for('adopt') }}">
+              <button type="button">ADOPT</button>
+            </a>
+          </div>
+        </li>
+        <li class="banner-item">
+          <div class="container">
+            <h1>Register a pet for adoption</h1>
+            <p class="text">just a few clicks away for your fluff to get a new home</p>
+            <a href="{{ url_for('register') }}">
+              <button type="button">REGISTER PET</button>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <!-- end of banner section -->
+
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="brand-and-toggler">
+          <a href="{{ url_for('main') }}" class="navbar-brand">
+            <img src="{{ url_for('static', filename='assets/images/pawradise.png') }}" alt="logo">
+            <h2>Pet Pawradise</h2>
+          </a>
+          <button type="button" id="navbar-toggler">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="navbar-collapse">
+          <ul class="navbar-nav">
+            <li>
+              <a href="#home">home</a>
+            </li>
+            <li>
+              <a href="#about">about</a>
+            </li>
+            <li>
+              <a href="{{ url_for('register') }}">Register Pet</a>
+            </li>
+            <li>
+              <a href="{{ url_for('adopt') }}">Adopt</a>
+            </li>
+            <li>
+              <a href="#subscribe">Subscribe</a>
+            </li>
+            <li>
+              <a href="#contact">contact us</a>
+            </li>
+            <li>
+              <a href="{{ url_for('signin') }}">Sign in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+  </header>
+  <!-- end of header -->
+
+  <!-- about section -->
+  <section class="padding-y about" id="about">
+    <div class="container">
+      <div class="about-row">
+        <div class="about-col-1">
+          <img src="{{ url_for('static', filename='assets/images/pet88.jpeg') }}" alt="">
+        </div>
+        <div class="about-col-2">
+          <!-- title -->
+          <div class="title">
+            <h2>About Pet Pawradise</h2>
+            <div class="line center">
+              <div></div>
+              <span><i class="fas fa-paw"></i></span>
+              <div></div>
+            </div>
+          </div>
+          <!-- end of title -->
+          <p class="text">Welcome to Pet Pawradise, where finding your fur-ever friend is our top priority! We're a
+            dedicated pet adoption website in India that connects loving families with adorable dogs and cats in need of
+            a new home. At Pet Pawradise, we believe that pets are a paw-some addition to any family, and we're
+            committed to helping you find your perfect match. Our furry friends come in all shapes, sizes, and
+            personalities, from cuddly kittens to playful pups.</p>
+          <p class="text">We strive to provide a paw-sitive experience for both our furry friends and their new
+            families, and we're always available to answer any questions or concerns you may have. Our goal is to make
+            sure that every pet finds their paw-fect match, and every family finds the love and companionship they're
+            looking for. So if you're ready to embark on a furrytail adventure and give a pet a fur-ever home, come on
+            over to Pet Pawradise. We can't wait to help you find your new best friend!</p>
+        </div>
+        <div class="about-col-3">
+          <img src="{{ url_for('static', filename='assets/images/pet7.jpeg') }}" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of about section -->
+
+
+<!-- customer service section -->
+<section class="padding-y customer" id="subscribe">
+  <div class="container">
+    <div class="custom-row">
+      <h2 class="custom-title">Subscribe to our Pup-arazzi! Starting soon!</h2>
+      <p class="custom-text">Join us and our pawsome users on their pawternity journeys with our weekly exclusives. Register right now!
+      </p>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message" >
+            <p align="center" class="{{category}}">{{ message }}</p>
+            
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+      <form method="POST" action="/subscribe">
+        <div class="custom-box">
+          <i class="fa fa-envelope"></i>
+          <input type="text" placeholder="username@email.com" name="email">
+          <button type="submit" class="service-btn" id="subscribe-btn">SUBSCRIBE</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- end of about section -->
+
+
+
+
+  <!-- contact section -->
+  <section class="padding-y contact" id="contact">
+    <div class="container">
+      <!-- title -->
+      <div class="title">
+        <h2>Keep In Touch</h2>
+        <div class="line center">
+          <div></div>
+          <span><i class="fas fa-cat"></i></span>
+          <div></div>
+        </div>
+      </div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message" >
+            <p align="center" class="{{category}}">{{ message }}</p>
+            
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+      <!-- end of title -->
+      <div class="contact-row-1">
+        <form class="contact-form" action="/keepintouch" method="POST" >
+          <div class="contact-subrow">
+            <input type="text" class="form-control" placeholder="Your Name" name="name">
+          </div>
+          <div class="contact-subrow">
+            <input type="password" class="form-control" placeholder="Password" name="password">
+          </div>
+
+          <textarea rows="5" class="form-control" placeholder="Message" name="message"></textarea>
+          <input type="submit" class="form-submit-btn" value="SEND MESSAGE">
+        </form>
+      </div>
+    </div>
+
+    <div class="contact-info">
+      <div class="container">
+        <div class="contact-row-2">
+          <div class="contact-col-1">
+            <h2>Contact Detail <i class="fas fa-paw"></i></h2>
+            <ul>
+              <li>Indian Institute of Technology, Ropar</li>
+              <li>Phone: +91 91237 26566</li>
+              <li>Email: adidas15901@gmail.com </li>
+              <li>Website: www.pawradise.com</li>
+            </ul>
+          </div>
+          <div class="contact-col-2" >
+            <h2>Follow Us <i class="fas fa-paw"></i> </h2>
+            <p class="text">Do check us out on other social media platforms and follow us!</p>
+            <ul class="center">
+              <!-- <li class = "center">
+                  <a href = "#">
+                    <i class = "fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class = "center">
+                  <a href = "#">
+                    <i class = "fab fa-twitter"></i>
+                  </a>
+                </li> -->
+              <li class="center">
+                <a href="https://www.linkedin.com/in/aditi-das-517588209/" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </li>
+              <li class="center">
+                <a href="https://www.linkedin.com/in/aditi-das-517588209/" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of contact section -->
+
+  <!-- footer -->
+  <footer>
+    <p class="text">Copyright &copy; Pet Pawradise Website 2023.</p>
+  </footer>
+  <!-- end of footer -->
+
+
+
+  <!-- jQuery -->
+  <script src="{{ url_for('static', filename='assets/jquery/jquery-3.6.0.js') }}"></script>
+  <!-- Fontawesome js -->
+  <script src="{{ url_for('static', filename='assets/fontawesome/all.js') }}"></script>
+  <!-- custom js file -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
